@@ -1,13 +1,17 @@
 const express =require('express');
 const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
 
 
 const app =express();
-app.listen(3000, () => {
-    console.log('app is running on port 3000   ');
+app.listen(3002, () => {
+    console.log('app is running on port 3002   ');
 });
-
+//
+// Middlewares
+//
 app.use(express.json());// middleware to change json to javascript 
+app.use(cors());
 
 
 const database = {
@@ -49,9 +53,9 @@ app.post('/register', (req,res)=>{
 
     database.users.push({
         id:'125',
-        name:name,
+        name: name,
         email: email,
-        password: password,
+        // password: password, // we dont want to return the password for security reasons
         entries: 0,
         joined:new Date()
     })
