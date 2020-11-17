@@ -18,8 +18,8 @@ const image = require('./controllers/image');
 
 
 const app =express();
-app.listen(3002, () => {
-    console.log('app is running on port 3002   ');
+app.listen(process.env.PORT||3002, () => {
+    console.log(`app is running on port ${process.env.PORT}   `);
 });
 //
 // Middlewares
